@@ -37,7 +37,7 @@ async function loadPassport(){
 
     const {data:vehicle,error:vehicleError}=await client
 
-    .from("customers")
+    .from("vehicles")
 
     .select("*")
 
