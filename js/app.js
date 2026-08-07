@@ -155,13 +155,13 @@ async function loadPassport() {
   (documents || []).forEach((doc) => {
 
     if (
-      doc.document_type === "document" ||
-      doc.document_type === "certificate"
+      doc.type === "document" ||
+      doc.type === "certificate"
     ) {
 
       documentsDiv.innerHTML += `
         <div class="service">
-          <span>${doc.name}</span>
+          <span>${doc.document_title}</span>
 
           <a href="${doc.file_url}"
              target="_blank"
@@ -173,11 +173,11 @@ async function loadPassport() {
         </div>
       `;
 
-    } else if (doc.document_type === "maintenance") {
+    } else if (doc.type === "maintenance") {
 
       maintenanceDiv.innerHTML += `
         <div class="service">
-          <span>${doc.name}</span>
+          <span>${doc.document_title}</span>
 
           <a href="${doc.file_url}"
              target="_blank"
@@ -217,58 +217,5 @@ function translateStatus(status) {
   }
 
 }
-
-const documentsDiv = document.getElementById("documents");
-const maintenanceDiv = document.getElementById("maintenance");
-
-documentsDiv.innerHTML = "";
-maintenanceDiv.innerHTML = "";
-
-documents.forEach(doc => {
-
-    // المستندات والشهادات
-    if (doc.document_type === "document" ||
-        doc.document_type === "certificate") {
-
-        documentsDiv.innerHTML += `
-        <div class="service">
-
-            <span>${doc.name}</span>
-
-            <a href="${doc.file_url}"
-               target="_blank"
-               class="status finished">
-
-               عرض
-
-            </a>
-
-        </div>
-        `;
-    }
-
-    // جدول الصيانة
-    else if (doc.document_type === "maintenance") {
-
-        maintenanceDiv.innerHTML += `
-
-        <div class="service">
-
-            <span>${doc.name}</span>
-
-            <a href="${doc.file_url}"
-               target="_blank"
-               class="status accepted">
-
-               فتح
-
-            </a>
-
-        </div>
-
-        `;
-    }
-
-});
 
 loadPassport();
