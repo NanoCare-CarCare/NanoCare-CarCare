@@ -6,7 +6,7 @@
 const SUPABASE_URL = "https://ktouszprkixuihnwfbwq.supabase.co";
 
 const SUPABASE_ANON_KEY =
-"ضع هنا الـ anon key بالكامل";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt0b3VzenBya2l4dWlobndmYndxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NTQ3NTEsImV4cCI6MjA5NDQzMDc1MX0.XatbbruatAENhsFqGXlPqzsdb26_yB182wqgmeMlbXQ";
 
 const client = supabase.createClient(
     SUPABASE_URL,
