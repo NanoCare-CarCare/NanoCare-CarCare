@@ -22,10 +22,9 @@ const params = new URLSearchParams(window.location.search);
 const vehicleId = params.get("id");
 
 if (!vehicleId) {
-
     document.body.innerHTML =
-    "<h2 style='color:white;text-align:center;margin-top:50px'>Vehicle ID Not Found</h2>";
-
+    "<h2 style='color:white;text-align:center'>Vehicle ID Not Found</h2>";
+    throw new Error("Vehicle ID Not Found");
 }
 
 //-------------------------------------
@@ -38,7 +37,7 @@ async function loadPassport(){
 
     const {data:vehicle,error:vehicleError}=await client
 
-    .from("vehicles")
+    .from("customers")
 
     .select("*")
 
